@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ce91ec</color>
+    <color name="colorPrimaryDark">#a352cc</color>
+    <color name="colorAccent">#fd82ac</color>
+    <color name="divider">#ac72c9</color>
+    <color name="scrollbar">#ac72c9</color>
+    <color name="actionBarColor">#CCC</color>
+    <color name="darkGrey">#CED1D4</color>
+    <color name="blue">#076296</color>
+    <color name="veryLightGrey">#50FFFFFF</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="black">#000</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="VeryLightwhite">#50FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparentWhite">#99ffffff</color>
+</resources>

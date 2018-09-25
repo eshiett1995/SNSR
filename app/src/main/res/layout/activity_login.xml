@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:paddingTop="56dp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp">
+
+
+        <ImageView android:src="@drawable/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal" />
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="@dimen/twenty_dp"
+    android:weightSum="10">
+    <ImageView android:id="@+id/input_edail"
+        style="@style/login_textView_style"
+        android:src="@drawable/at"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/five_dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="@dimen/forty_five_dp"
+        android:layout_weight="8"/>
+
+    <EditText android:id="@+id/input_email"
+        style="@style/login_editText_style"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/forty_five_dp"
+        android:layout_weight="2"
+        android:inputType="textEmailAddress"
+        />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty_dp"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <ImageView
+            style="@style/login_textView_style"
+            android:src="@drawable/lock"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/five_dp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty_five_dp"
+            android:layout_weight="8"/>
+
+        <EditText android:id="@+id/input_password"
+            style="@style/login_editText_style"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/forty_five_dp"
+            android:layout_weight="2"
+            android:inputType="textPassword"/>
+
+</LinearLayout>
+        <!--  Password Label -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:padding="12dp"
+                android:paddingTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="25dp"
+                android:text="Forget Password ?"
+                android:layout_weight="5"/>
+
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="fill_parent"
+            android:paddingTop="12dp"
+            android:background="@drawable/login_btn_bg"
+            android:paddingBottom="12dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:padding="12dp"
+            android:layout_weight="5"
+            android:text="Login"/>
+        </LinearLayout>
+
+        <TextView android:id="@+id/link_signup"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="No account yet? Create one"
+            android:gravity="center"
+            android:textSize="16dip"/>
+
+    </LinearLayout>
+
+</ScrollView>
