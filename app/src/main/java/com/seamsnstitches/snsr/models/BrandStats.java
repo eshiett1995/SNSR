@@ -1,5 +1,6 @@
 package com.seamsnstitches.snsr.models;
 
+//chill
 
 
 public class BrandStats {
