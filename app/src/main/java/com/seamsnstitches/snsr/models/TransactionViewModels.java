@@ -91,6 +91,10 @@ public class TransactionViewModels extends ViewModel {
         });
     }
 
+    /**
+     * This gets the first items from the Api
+     * @param fashionBrand fashionBrand
+     */
     public void getFirstTransactionItem(FashionBrand fashionBrand) {
         progressBarCallbacks.showFirstItemsLoadingProgressbar();
 
