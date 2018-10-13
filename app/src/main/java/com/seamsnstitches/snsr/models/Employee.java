@@ -1,10 +1,23 @@
 package com.seamsnstitches.snsr.models;
 
 
-public class Employee extends DefaultEntity {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Employee extends DefaultEntity implements Parcelable {
 
 
-    public enum POSITION {ADMIN, NON_ADMIN}
+    public static final Creator<Employee> CREATOR = new Creator<Employee>() {
+        @Override
+        public Employee createFromParcel(Parcel in) {
+            return new Employee(in);
+        }
+
+        @Override
+        public Employee[] newArray(int size) {
+            return new Employee[size];
+        }
+    };
 
     private String firstName;
 
@@ -21,6 +34,34 @@ public class Employee extends DefaultEntity {
     private FashionBrand fashionBrand;
 
     private double rating;
+
+    public Employee() {
+
+    }
+
+    protected Employee(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        email = in.readString();
+        password = in.readString();
+        Activated = in.readByte() != 0;
+        rating = in.readDouble();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(firstName);
+        parcel.writeString(lastName);
+        parcel.writeString(email);
+        parcel.writeString(password);
+        parcel.writeByte((byte) (Activated ? 1 : 0));
+        parcel.writeDouble(rating);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -88,5 +129,7 @@ public class Employee extends DefaultEntity {
 
         return this;
     }
+
+    public enum POSITION {ADMIN, NON_ADMIN}
 }
 

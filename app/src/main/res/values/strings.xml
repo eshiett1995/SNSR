@@ -6,4 +6,32 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <!--Header Strings for Trouser Measurement Fragment-->
+    <string name="trouser_measurement_full_length">Full Length: </string>
+    <string name="trouser_measurement_waist">Waist: </string>
+    <string name="trouser_measurement_hip">Hip: </string>
+    <string name="trouser_measurement_knee">Knee: </string>
+    <string name="trouser_measurement_Thigh">Thigh: </string>
+    <string name="trouser_measurement_Ankle">Ankle: </string>
+    <string name="trouser_measurement_shorts_length">Short Length: </string>
+
+
+    <!--Header Strings for Shirt Measurement Fragment-->
+    <string name="shirt_measurement_top_length">Top Length: </string>
+    <string name="shirt_measurement_chest">Chest: </string>
+    <string name="shirt_measurement_shoulder">Shoulder: </string>
+    <string name="shirt_measurement_sleeve_length">Sleeve Length: </string>
+    <string name="shirt_measurement_short_sleeve_length">Short Sleeve Length: </string>
+    <string name="shirt_measurement_neck">Neck: </string>
+    <string name="shirt_measurement_collar">Collar: </string>
+    <string name="shirt_measurement_round_wrist">Round Wrist: </string>
+    <string name="user_details_view_orders_button_text">View Orders</string>
+
+    <!--Headers String for Confirmation Purchase Fragment-->
+    <string name="purchase_confirmation_date_header">Date</string>
+    <string name="purchase_confirmation_quantity_header">Quantity</string>
+    <string name="purchase_confirmation_rating_header">Rating</string>
+    <string name="purchase_confirmation_choice_header">Choice</string>
+
 </resources>

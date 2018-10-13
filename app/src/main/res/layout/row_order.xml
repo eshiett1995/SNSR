@@ -1,64 +1,72 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginTop="12dp"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--android:layout_marginTop="12dp"-->
+    <!--android:layout_marginLeft="16dp"-->
+    <!--android:layout_marginRight="16dp"-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:orientation="horizontal">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/image_view_song_image"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:src="@drawable/g"/>
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="8dp">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/row_order_first_letter_circle_image"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/g" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/row_order_user_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:maxLines="1"
+                        android:text="Penalty"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_view_song_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3s"
+                        android:textAllCaps="true"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/text_view_song_title"
-                    android:layout_width="0dp"
+                    android:id="@+id/row_order_location_address"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:maxLines="1"
-                    android:text="Penalty"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:id="@+id/text_view_song_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="3s"
-                    android:textAllCaps="true"
-                    android:textSize="12sp"/>
+                    android:text="SmallDoctor" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/text_view_song_artiste"
-                android:maxLines="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SmallDoctor"/>
         </LinearLayout>
 
+        <include layout="@layout/divider" />
     </LinearLayout>
-
-    <include layout="@layout/divider"/>
-</LinearLayout>
+</layout>

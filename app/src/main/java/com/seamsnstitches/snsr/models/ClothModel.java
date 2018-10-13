@@ -1,21 +1,43 @@
 package com.seamsnstitches.snsr.models;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class ClothModel extends DefaultEntity {
+import com.google.gson.annotations.SerializedName;
+
+public class ClothModel extends DefaultEntity implements Parcelable {
 
 
+    public static final Creator<ClothModel> CREATOR = new Creator<ClothModel>() {
+        @Override
+        public ClothModel createFromParcel(Parcel in) {
+            return new ClothModel(in);
+        }
 
+        @Override
+        public ClothModel[] newArray(int size) {
+            return new ClothModel[size];
+        }
+    };
+    @SerializedName("clothingType")
     private ClothingType clothingType;
-
+    @SerializedName("quantity")
     private int quantity;
-
+    @SerializedName("amount")
     private double amount;
-
+    @SerializedName("modelStructure")
     private String modelStructure;
-
+    @SerializedName("savedUrl")
     private String savedUrl;
 
+    protected ClothModel(Parcel in) {
+        clothingType = in.readParcelable(ClothingType.class.getClassLoader());
+        quantity = in.readInt();
+        amount = in.readDouble();
+        modelStructure = in.readString();
+        savedUrl = in.readString();
+    }
 
     public ClothingType getClothingType() {
 
@@ -65,6 +87,20 @@ public class ClothModel extends DefaultEntity {
 
     public void setSavedUrl(String savedUrl) {
         this.savedUrl = savedUrl;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeParcelable(clothingType, i);
+        parcel.writeInt(quantity);
+        parcel.writeDouble(amount);
+        parcel.writeString(modelStructure);
+        parcel.writeString(savedUrl);
     }
 }
 

@@ -1,13 +1,11 @@
 package com.seamsnstitches.snsr;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 
-import com.seamsnstitches.snsr.utility.AppConstants;
+import com.seamsnstitches.snsr.utility.SNSR_SharedPreferences.LoginStatusPreference;
 
 import butterknife.ButterKnife;
 
@@ -17,7 +15,9 @@ import butterknife.ButterKnife;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
-    /** Duration of wait **/
+    /**
+     * Duration of wait
+     **/
     private final int SPLASH_DISPLAY_LENGTH = 4000;
 
 
@@ -28,24 +28,27 @@ public class SplashScreenActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
 
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(AppConstants.SHARED_PREFERENCE_NAME, 0); // 0 - for private mode
+                LoginStatusPreference.initLoginStatusPreference(getApplicationContext());
 
-                if(sharedPreferences.getBoolean(AppConstants.IS_LOGGED_IN, false)){
+                //SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences(AppConstants.SHARED_PREFERENCE_NAME, 0); // 0 - for private mode
 
-                    Intent homeIntent = new Intent(SplashScreenActivity.this,HomeActivity.class);
+                //if (sharedPreferences.getBoolean(AppConstants.IS_LOGGED_IN, false)) {
+                if (LoginStatusPreference.getIsLoggedIn()) {
+
+                    Intent homeIntent = new Intent(SplashScreenActivity.this, HomeActivity.class);
 
                     SplashScreenActivity.this.startActivity(homeIntent);
 
                     SplashScreenActivity.this.finish();
 
-                }else{
+                } else {
 
-                    Intent loginIntent = new Intent(SplashScreenActivity.this,LoginActivity.class);
+                    Intent loginIntent = new Intent(SplashScreenActivity.this, LoginActivity.class);
 
                     SplashScreenActivity.this.startActivity(loginIntent);
 

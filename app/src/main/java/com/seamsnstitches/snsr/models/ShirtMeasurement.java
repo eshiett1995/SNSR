@@ -1,26 +1,54 @@
 package com.seamsnstitches.snsr.models;
 
 
-public class ShirtMeasurement extends DefaultEntity {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
+
+public class ShirtMeasurement extends DefaultEntity implements Parcelable {
 
     //@OneToOne(mappedBy = "shirtMeasurement")
     //private User customer;
 
+    public static final Creator<ShirtMeasurement> CREATOR = new Creator<ShirtMeasurement>() {
+        @Override
+        public ShirtMeasurement createFromParcel(Parcel in) {
+            return new ShirtMeasurement(in);
+        }
+
+        @Override
+        public ShirtMeasurement[] newArray(int size) {
+            return new ShirtMeasurement[size];
+        }
+    };
+    @SerializedName("topLength")
     private double topLength;
-
+    @SerializedName("chest")
     private double chest;
-
+    @SerializedName("shoulder")
     private double shoulder;
-
+    @SerializedName("sleeveLength")
     private double sleeveLength;
-
+    @SerializedName("shortSleeveLength")
     private double shortSleeveLength;
-
+    @SerializedName("neck")
     private double neck;
-
+    @SerializedName("collar")
     private double collar;
-
+    @SerializedName("roundWrist")
     private double roundWrist;
+
+    protected ShirtMeasurement(Parcel in) {
+        topLength = in.readDouble();
+        chest = in.readDouble();
+        shoulder = in.readDouble();
+        sleeveLength = in.readDouble();
+        shortSleeveLength = in.readDouble();
+        neck = in.readDouble();
+        collar = in.readDouble();
+        roundWrist = in.readDouble();
+    }
 
     /**public User getCustomer() {
      return customer;
@@ -92,5 +120,22 @@ public class ShirtMeasurement extends DefaultEntity {
 
     public void setRoundWrist(double roundWrist) {
         this.roundWrist = roundWrist;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeDouble(topLength);
+        parcel.writeDouble(chest);
+        parcel.writeDouble(shoulder);
+        parcel.writeDouble(sleeveLength);
+        parcel.writeDouble(shortSleeveLength);
+        parcel.writeDouble(neck);
+        parcel.writeDouble(collar);
+        parcel.writeDouble(roundWrist);
     }
 }

@@ -22,6 +22,19 @@
         app:itemIconTint="#000000"
         app:itemTextColor="#000000"
         app:headerLayout="@layout/nav_header_home"
-        app:menu="@menu/activity_home_drawer" />
+        app:menu="@menu/activity_home_drawer">
+
+        <TextView
+            android:id="@+id/log_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="4dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="32dp"
+            android:paddingTop="4dp"
+            android:text="Logout"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

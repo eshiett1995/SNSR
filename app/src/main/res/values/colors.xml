@@ -5,6 +5,9 @@
     <color name="colorAccent">#fd82ac</color>
     <color name="divider">#ac72c9</color>
     <color name="scrollbar">#ac72c9</color>
+    <!--<color name="colorFabColor">#9C27B0</color>-->
+    <color name="colorFabColor">@color/colorPrimaryDark</color>
+    <color name="colorBottomSheet">#CDCDCD</color>
     <color name="actionBarColor">#CCC</color>
     <color name="darkGrey">#CED1D4</color>
     <color name="blue">#076296</color>

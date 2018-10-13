@@ -1,6 +1,8 @@
 package com.seamsnstitches.snsr.models.api.response;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class GenericPageResponseModel {
 
 
@@ -12,8 +14,10 @@ public class GenericPageResponseModel {
 
     }
 
+    @SerializedName("genericPageModel")
     private GenericPageModel genericPageModel;
 
+    @SerializedName("responseModel")
     private ResponseModel responseModel;
 
 

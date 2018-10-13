@@ -1,11 +1,14 @@
 package com.seamsnstitches.snsr.models;
 
 
+import com.google.gson.annotations.SerializedName;
 
 public class GpsCoordinate extends DefaultEntity {
 
+    @SerializedName("Latitude")
     private double Latitude;
 
+    @SerializedName("Longitude")
     private double Longitude;
 
     public double getLatitude() {

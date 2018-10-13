@@ -1,24 +1,35 @@
 package com.seamsnstitches.snsr.models.api.response;
 
+import com.google.gson.annotations.SerializedName;
+import com.seamsnstitches.snsr.models.Transaction;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class GenericPageModel<T> {
 
+    @SerializedName("currentPageNumber")
     private int currentPageNumber;
 
+    @SerializedName("getCurrentPageSize")
     private int getCurrentPageSize;
 
+    @SerializedName("totalNumberOfElements")
     private int totalNumberOfElements;
 
+    @SerializedName("totalNumberOfPages")
     private int totalNumberOfPages;
 
-    private List<T> content = new ArrayList<>();
+    @SerializedName("content")
+    private List<Transaction> content = new ArrayList<>();
 
+    @SerializedName("isFirst")
     private boolean isFirst;
 
+    @SerializedName("isLast")
     private boolean isLast;
 
+    @SerializedName("hasNext")
     private boolean hasNext;
 
 
@@ -66,13 +77,13 @@ public class GenericPageModel<T> {
         return this;
     }
 
-    public List<T> getContent() {
+    public List<Transaction> getContent() {
 
         return content;
 
     }
 
-    public GenericPageModel setContent(List<T> content) {
+    public GenericPageModel setContent(List<Transaction> content) {
 
         this.content = content;
 

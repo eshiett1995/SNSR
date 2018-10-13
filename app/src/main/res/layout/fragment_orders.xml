@@ -1,21 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blue">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_recycler"
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/row_order_swipe_refresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingBottom="@dimen/fifteen_dp"
-        android:paddingTop="@dimen/fifteen_dp"/>
+        android:layout_height="match_parent">
 
-    <ProgressBar
-        android:id="@+id/main_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
+        <FrameLayout
+            android:id="@+id/orders_frame_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue">
 
-</FrameLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/fifteen_dp"
+                android:paddingTop="@dimen/fifteen_dp" />
+
+            <ProgressBar
+                android:id="@+id/main_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/main_footer_progress_bar"
+                android:layout_width="@dimen/footer_progress_bar_dimen"
+                android:layout_height="@dimen/footer_progress_bar_dimen"
+                android:layout_gravity="bottom|center"
+                android:visibility="gone" />
+
+        </FrameLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</layout>

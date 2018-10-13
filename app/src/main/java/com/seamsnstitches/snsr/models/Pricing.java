@@ -1,12 +1,16 @@
 package com.seamsnstitches.snsr.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Pricing extends  DefaultEntity{
 
+    @SerializedName("clothingType")
     private ClothingType clothingType;
 
+    @SerializedName("price")
     private  double price;
 
-
+    @SerializedName("fashionBrand")
     private FashionBrand fashionBrand;
 
     public ClothingType getClothingType() {

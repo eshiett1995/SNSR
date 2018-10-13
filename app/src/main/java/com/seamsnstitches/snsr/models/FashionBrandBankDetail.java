@@ -1,12 +1,17 @@
 package com.seamsnstitches.snsr.models;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class FashionBrandBankDetail extends DefaultEntity{
 
+    @SerializedName("bankName")
     private String bankName;
 
+    @SerializedName("accountName")
     private String accountName;
 
+    @SerializedName("accountNumber")
     private String accountNumber;
 
     public String getBankName() {

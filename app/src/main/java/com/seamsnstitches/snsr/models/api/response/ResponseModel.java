@@ -1,6 +1,8 @@
 package com.seamsnstitches.snsr.models.api.response;
 
 
+import com.google.gson.annotations.SerializedName;
+
 public class ResponseModel {
 
 
@@ -15,8 +17,10 @@ public class ResponseModel {
     }
 
 
+    @SerializedName("isSuccessful")
     public Boolean isSuccessful;
 
+    @SerializedName("responseMessage")
     public String responseMessage;
 
     public Boolean getIsSuccessful() {

@@ -1,16 +1,52 @@
 package com.seamsnstitches.snsr.models;
 
-public class ClothingType extends DefaultEntity {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
+
+public class ClothingType extends DefaultEntity implements Parcelable {
+
+    public static final Creator<ClothingType> CREATOR = new Creator<ClothingType>() {
+        @Override
+        public ClothingType createFromParcel(Parcel in) {
+            return new ClothingType(in);
+        }
+
+        @Override
+        public ClothingType[] newArray(int size) {
+            return new ClothingType[size];
+        }
+    };
+    @SerializedName("name")
+    private String name;
+    @SerializedName("gender")
+    private  Gender gender;
+    @SerializedName("imageURL")
+    private String imageURL;
 
     public enum Gender {Male, Female, Unisex}
 
-    private String name;
-
-    private  Gender gender;
-
-    private String imageURL;
-
+    @SerializedName("webURL")
     private String webURL;
+
+    protected ClothingType(Parcel in) {
+        name = in.readString();
+        imageURL = in.readString();
+        webURL = in.readString();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(imageURL);
+        parcel.writeString(webURL);
+    }
 
     public String getName() {
         return name;

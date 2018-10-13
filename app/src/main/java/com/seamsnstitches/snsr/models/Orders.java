@@ -1,21 +1,43 @@
 package com.seamsnstitches.snsr.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Orders extends DefaultEntity {
+public class Orders extends DefaultEntity implements Parcelable {
 
+    public static final Creator<Orders> CREATOR = new Creator<Orders>() {
+        @Override
+        public Orders createFromParcel(Parcel in) {
+            return new Orders(in);
+        }
+
+        @Override
+        public Orders[] newArray(int size) {
+            return new Orders[size];
+        }
+    };
+    @SerializedName("fashionBrand")
     private FashionBrand fashionBrand;
-
+    @SerializedName("amount")
     private double amount;
-
+    @SerializedName("clothModels")
     private List<ClothModel> clothModels = new ArrayList<>();
-
+    @SerializedName("status")
     private Enum.Status status;
-
+    @SerializedName("user")
     private User user;
-
+    @SerializedName("tasks")
     private List<Task> tasks = new ArrayList<>();
+
+    protected Orders(Parcel in) {
+        amount = in.readDouble();
+        user = in.readParcelable(User.class.getClassLoader());
+    }
 
     public List<Task> getTasks() {
 
@@ -36,7 +58,6 @@ public class Orders extends DefaultEntity {
     public Orders setClothModels(List<ClothModel> clothModels) {
 
         this.clothModels = clothModels;
-
         return this;
     }
 
@@ -94,5 +115,16 @@ public class Orders extends DefaultEntity {
         this.user = user;
 
         return this;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeDouble(amount);
+        parcel.writeParcelable(user, i);
     }
 }

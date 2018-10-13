@@ -1,13 +1,19 @@
 package com.seamsnstitches.snsr.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Task extends DefaultEntity{
 
+    @SerializedName("orders")
     private Orders orders;
 
+    @SerializedName("details")
     private String details;
 
+    @SerializedName("completed")
     private boolean completed;
 
+    @SerializedName("employee")
     private Employee employee;
 
     public Orders getOrders() {

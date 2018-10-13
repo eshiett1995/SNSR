@@ -1,27 +1,56 @@
 package com.seamsnstitches.snsr.models;
 
-public class User extends DefaultEntity {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+import com.google.gson.annotations.SerializedName;
+
+public class User extends DefaultEntity implements Parcelable {
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
+    @SerializedName("firstName")
     private String firstName;
-
+    @SerializedName("lastName")
     private String lastName;
-
+    @SerializedName("phoneNumber")
     private String phoneNumber;
-
+    @SerializedName("password")
     private String password;
-
+    @SerializedName("email")
     private String email;
-
+    @SerializedName("address")
     private String address;
-
+    @SerializedName("isActivated")
     private boolean isActivated = false;
-
+    @SerializedName("userGpsCoordinate")
     private UserGpsCoordinate userGpsCoordinate;
-
+    @SerializedName("trouserMeasurement")
     private TrouserMeasurement trouserMeasurement;
-
+    @SerializedName("shirtMeasurement")
     private ShirtMeasurement shirtMeasurement;
 
+    protected User(Parcel in) {
+        firstName = in.readString();
+        lastName = in.readString();
+        phoneNumber = in.readString();
+        password = in.readString();
+        email = in.readString();
+        address = in.readString();
+        isActivated = in.readByte() != 0;
+        userGpsCoordinate = in.readParcelable(UserGpsCoordinate.class.getClassLoader());
+        trouserMeasurement = in.readParcelable(TrouserMeasurement.class.getClassLoader());
+        shirtMeasurement = in.readParcelable(ShirtMeasurement.class.getClassLoader());
+    }
 
     public String getFirstName() {
         return firstName;
@@ -119,5 +148,24 @@ public class User extends DefaultEntity {
     public User setUserGpsCoordinate(UserGpsCoordinate userGpsCoordinate) {
         this.userGpsCoordinate = userGpsCoordinate;
         return this;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(firstName);
+        parcel.writeString(lastName);
+        parcel.writeString(phoneNumber);
+        parcel.writeString(password);
+        parcel.writeString(email);
+        parcel.writeString(address);
+        parcel.writeByte((byte) (isActivated ? 1 : 0));
+        parcel.writeParcelable(userGpsCoordinate, i);
+        parcel.writeParcelable(trouserMeasurement, i);
+        parcel.writeParcelable(shirtMeasurement, i);
     }
 }
